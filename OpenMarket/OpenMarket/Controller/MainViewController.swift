@@ -21,11 +21,22 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        configureNavigationBar()
         configureSegment()
         configureLoadingView()
         configureCollectionView()
         self.activityIndicatorView.startAnimating()
         fetchData()
+    }
+    
+    private func configureNavigationBar() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didAddProductButtonTapped))
+        self.navigationItem.titleView = segment
+    }
+    
+    @objc private func didAddProductButtonTapped() {
+        let addProductViewController = AddProductViewController()
+        self.navigationController?.pushViewController(addProductViewController, animated: true)
     }
     
     private func fetchData() {
@@ -54,10 +65,10 @@ final class MainViewController: UIViewController {
         }
     }
 }
+
 //MARK: SegmentControl
 extension MainViewController {
     private func configureSegment() {
-        self.navigationItem.titleView = segment
         segment.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         segment.setTitleTextAttributes([.foregroundColor: UIColor.systemBlue], for: .normal)
         segment.frame.size.width = view.bounds.width * 0.3
@@ -67,7 +78,7 @@ extension MainViewController {
         segment.layer.borderColor = UIColor.systemBlue.cgColor
         segment.selectedSegmentTintColor = .systemBlue
         segment.selectedSegmentIndex = 0
-        segment.addTarget(self, action: #selector(tapSegment(sender:)), for: .valueChanged)
+        segment.addTarget(self, action: #selector(tapSegment), for: .valueChanged)
     }
     
     @objc private func tapSegment(sender: UISegmentedControl) {

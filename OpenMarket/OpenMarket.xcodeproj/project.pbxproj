@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D8AE79028926DCA00BCFB3D /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AE78F28926DCA00BCFB3D /* UIImageView + Extension.swift */; };
+		4D98030C2897F65700EFCFAB /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98030B2897F65700EFCFAB /* AddProductViewController.swift */; };
 		7253EE8628925F29000D8E68 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253EE8528925F29000D8E68 /* NetworkManager.swift */; };
 		7253EE8828925F43000D8E68 /* OpenMarketURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253EE8728925F43000D8E68 /* OpenMarketURL.swift */; };
 		7253EE8A28925F59000D8E68 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253EE8928925F59000D8E68 /* HTTPMethod.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		4D8AE78F28926DCA00BCFB3D /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
+		4D98030B2897F65700EFCFAB /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		7253EE8528925F29000D8E68 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7253EE8728925F43000D8E68 /* OpenMarketURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketURL.swift; sourceTree = "<group>"; };
 		7253EE8928925F59000D8E68 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				C70FB0FE25BEF61C00C9924E /* MainViewController.swift */,
+				4D98030B2897F65700EFCFAB /* AddProductViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			files = (
 				7253EE9728926006000D8E68 /* GridCollectionViewCell.swift in Sources */,
 				7253EE9528925FEE000D8E68 /* ListCollectionViewCell.swift in Sources */,
+				4D98030C2897F65700EFCFAB /* AddProductViewController.swift in Sources */,
 				7253EE9D2892772B000D8E68 /* Int+extension.swift in Sources */,
 				4D8AE79028926DCA00BCFB3D /* UIImageView + Extension.swift in Sources */,
 				7253EE8628925F29000D8E68 /* NetworkManager.swift in Sources */,
