@@ -84,17 +84,13 @@ extension MainViewController {
     @objc private func tapSegment(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            DispatchQueue.main.async { [self] in
+                let indexPath = collectionView.indexPathsForVisibleItems
+                collectionView.reloadItems(at: indexPath)
                 collectionView.setCollectionViewLayout(createListLayout(), animated: true)
-                let indexPath = collectionView.indexPathsForVisibleItems
-                collectionView.reloadItems(at: indexPath)
-            }
         case 1:
-            DispatchQueue.main.async { [self] in
-                collectionView.setCollectionViewLayout(gridLayout, animated: true)
                 let indexPath = collectionView.indexPathsForVisibleItems
                 collectionView.reloadItems(at: indexPath)
-            }
+                collectionView.setCollectionViewLayout(gridLayout, animated: true)
         default:
             return
         }
