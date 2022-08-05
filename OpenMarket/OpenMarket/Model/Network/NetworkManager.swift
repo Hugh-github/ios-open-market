@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkManager {
+class NetworkManager: OpenMarketRequest {
     private let session = URLSession.shared
     private var baseComponents = URLComponents(string: OpenMarketURL.baseURL.description)
     
@@ -41,5 +41,30 @@ class NetworkManager {
         request.httpMethod = HTTPMethod.get.request
         
         fetchData(request: request, completion: completion)
+    }
+    
+    func postData<T: Decodable>(identifier: String, paramter: ProductRegistration, images: [ImageFile], completion: @escaping (T) -> Void) {
+        guard let url = URL(string: OpenMarketURL.baseURL.description) else { return }
+        var postRequest = URLRequest(url: url)
+        
+        let boundary = generateBoundary()
+        
+        postRequest.httpMethod = HTTPMethod.post.request
+        postRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        postRequest.addValue(identifier, forHTTPHeaderField: "identifier")
+        
+        let dataBody = createDataBody(withParameters: paramter, images: images, boundary: boundary)
+        postRequest.httpBody = dataBody
+        
+        let task = URLSession.shared.dataTask(with: postRequest) { (data, response, error) in
+            if let data = data {
+                do {
+                    let decodedData = try JSONDecoder().decode(T.self, from: data)
+                    completion(decodedData)
+                } catch {
+                }
+            }
+        }
+        task.resume()
     }
 }
